@@ -14,7 +14,7 @@ public class RopeLength : MonoBehaviour
         if (ball.inAir)
             rope.ropeLength += Time.deltaTime * lengthRate ;
 
-        if(Vector3.Distance(transform.position, target.position) < 0.05f)
+        if(Vector3.Distance(transform.position, target.position) < 0.5f)
         {
             Debug.Log("ball hit");
             ball.inAir = false;

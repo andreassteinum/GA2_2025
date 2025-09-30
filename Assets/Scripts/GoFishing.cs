@@ -92,7 +92,18 @@ public class GoFishing : MonoBehaviour
             Vector3 pos1 = endp.position;
             Vector3 pos2 = startp.position;
 
-            if (Vector3.Distance(pos1, pos2) < 2f)
+            Vector3 flat1 = pos1;
+            Vector3 flat2 = pos2;
+
+            flat1.y = 0;
+            flat2.y = 0;
+
+            if (Vector3.Distance(flat1, flat2) > 4f)
+                pos2.y = target.position.y;       //keep on surface of water
+
+
+
+            if (Vector3.Distance(flat1, flat2) < 0.5f)
             {
                 //reparent
                 endp.parent = ropeObj;
