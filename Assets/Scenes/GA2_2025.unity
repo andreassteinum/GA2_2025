@@ -3050,6 +3050,7 @@ MonoBehaviour:
   endp: {fileID: 1398507951412638563}
   startp: {fileID: 6199689978566657240}
   target: {fileID: 73303833}
+  inFishingVolume: 0
 --- !u!1 &765628620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f45e821f9576e7446b6e005bc9292a3c, type: 3}
@@ -3887,6 +3888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   msgpanel: {fileID: 1503958280}
   text: {fileID: 1686075171}
+  avatar: {fileID: 765196376}
 --- !u!65 &1026079376
 BoxCollider:
   m_ObjectHideFlags: 0
