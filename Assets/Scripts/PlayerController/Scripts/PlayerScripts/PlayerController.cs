@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRigidController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 	
     [Header("Character Attributes")]

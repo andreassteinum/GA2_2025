@@ -39,12 +39,12 @@ public class CameraContoller : MonoBehaviour
     float pitch;
 
     private bool isPlayerMoving;
-    private PlayerRigidController playerController;
+    private PlayerController playerController;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GetComponentInParent<PlayerRigidController>();
+        playerController = GetComponentInParent<PlayerController>();
 
         // Assigning the private variable to the Camera Game Component
         cameraPos = this.gameObject.transform;

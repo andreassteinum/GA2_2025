@@ -28,7 +28,7 @@ public class DialogueCamera : MonoBehaviour
 
     GameObject player = null;
     GameObject playerCamera = null;
-    PlayerRigidController playerController = null;
+    PlayerController playerController = null;
 
     bool bInDialogue = false;
 
@@ -38,7 +38,7 @@ public class DialogueCamera : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player"); // store Player ref
         playerCamera = GameObject.FindWithTag("MainCamera"); // store MainCamera ref
-        playerController = player.gameObject.GetComponent<PlayerRigidController>(); // For Preventing movement during dialogue..
+        playerController = player.gameObject.GetComponent<PlayerController>(); // For Preventing movement during dialogue..
 
         if(diaTarget == null)
         {
