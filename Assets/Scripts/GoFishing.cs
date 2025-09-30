@@ -13,6 +13,8 @@ public class GoFishing : MonoBehaviour
     public Transform startp;
     public Transform target;
 
+    public bool inFishingVolume = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,23 +28,23 @@ public class GoFishing : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
+        if (inFishingVolume && !isCast) 
         {
-            Ray ray = fishCam.ScreenPointToRay(Input.mousePosition);
+
+            Vector2 screenCenter = new Vector2(Screen.width / 2, ((float)Screen.height) * 0.75f );
+            Ray ray = fishCam.ScreenPointToRay(screenCenter);
+            
             RaycastHit hit;
             int layerMask = 1 << 4; //water
 
             if (Physics.Raycast(ray, out hit,1000,layerMask))
             {
-                Debug.Log("Mouse clicked on: " + hit.collider.name + " at world position: " + hit.point);
-                // You can add further logic here, e.g., interact with the hit object
-
-
+                
                 target.position = hit.point;
             }
             else
             {
-                Debug.Log("Mouse clicked, but no object was hit by the ray.");
+               
             }
         }
 
@@ -86,7 +88,10 @@ public class GoFishing : MonoBehaviour
 
         if(reelItIn)
         {
-                      
+             //add a fish as a child object  to endpoint zero fish Localposition
+             //not here but, make a trigger on the backpack to drop the fish, add the fish as a child of packpack
+             //Localposition 0 again
+             //backpack has a script that counts it's child fish until enough
 
             //reel it in
             Vector3 pos1 = endp.position;
