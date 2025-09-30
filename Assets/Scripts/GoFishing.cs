@@ -16,9 +16,9 @@ public class GoFishing : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-                 //rod                //hook  
+                 //rod                //tip  
         startp = ropeObj.GetChild(0).GetChild(0);
-        endp = ropeObj.GetChild(1);
+        endp = ropeObj.GetChild(1); //bait
     }
 
     // Update is called once per frame
