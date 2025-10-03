@@ -13,11 +13,14 @@ public class GoFishing : MonoBehaviour
     public Transform startp;
     public Transform target;
 
+    public bool inFishingVolume = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        startp = ropeObj.GetChild(0);
-        endp = ropeObj.GetChild(1);
+                 //rod                //tip  
+        startp = ropeObj.GetChild(0).GetChild(0);
+        endp = ropeObj.GetChild(1); //bait
     }
 
     // Update is called once per frame
@@ -25,23 +28,23 @@ public class GoFishing : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetMouseButtonDown(0)) // Check for left mouse button click
+        if (inFishingVolume && !isCast) 
         {
-            Ray ray = fishCam.ScreenPointToRay(Input.mousePosition);
+
+            Vector2 screenCenter = new Vector2(Screen.width / 2, ((float)Screen.height) * 0.75f );
+            Ray ray = fishCam.ScreenPointToRay(screenCenter);
+            
             RaycastHit hit;
             int layerMask = 1 << 4; //water
 
             if (Physics.Raycast(ray, out hit,1000,layerMask))
             {
-                Debug.Log("Mouse clicked on: " + hit.collider.name + " at world position: " + hit.point);
-                // You can add further logic here, e.g., interact with the hit object
-
-
+                
                 target.position = hit.point;
             }
             else
             {
-                Debug.Log("Mouse clicked, but no object was hit by the ray.");
+               
             }
         }
 
@@ -71,7 +74,7 @@ public class GoFishing : MonoBehaviour
                 ballG.enabled = true;
                 ballG.reset();
                 
-                ballG.impulse = ball.fire(startp.position, target.position, 60 );
+                ballG.impulse = ball.fire(startp.position, target.position, 45 );
                 
                 isCast = true;
 
@@ -85,13 +88,28 @@ public class GoFishing : MonoBehaviour
 
         if(reelItIn)
         {
-                      
+            //TODO:
+             //add a fish as a child object  to endpoint zero fish Localposition
+             //not here but, make a trigger on the backpack to drop the fish, add the fish as a child of packpack
+             //Localposition 0 again
+             //backpack has a script that counts it's child fish until enough
 
             //reel it in
             Vector3 pos1 = endp.position;
             Vector3 pos2 = startp.position;
 
-            if (Vector3.Distance(pos1, pos2) < 2f)
+            Vector3 flat1 = pos1;
+            Vector3 flat2 = pos2;
+
+            flat1.y = 0;
+            flat2.y = 0;
+
+            if (Vector3.Distance(flat1, flat2) > 4f)
+                pos2.y = target.position.y;       //keep on surface of water
+
+
+
+            if (Vector3.Distance(flat1, flat2) < 0.5f)
             {
                 //reparent
                 endp.parent = ropeObj;

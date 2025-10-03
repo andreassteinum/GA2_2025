@@ -150,8 +150,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   G: 9.8
   direction: {x: 0, y: 0, z: 0}
-  start: {fileID: 6199689978029032512}
-  end: {fileID: 0}
   inAir: 0
   launchAngle: 45
   grav: {fileID: 6210711764830632845}
@@ -196,7 +194,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rope: {fileID: 3681673672089665128}
   ball: {fileID: 43051546911342038}
+  ballG: {fileID: 0}
   lengthRate: 4
+  target: {fileID: 0}
 --- !u!1 &7199539789203348229
 GameObject:
   m_ObjectHideFlags: 0

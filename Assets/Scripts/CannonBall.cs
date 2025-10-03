@@ -5,9 +5,7 @@ public class CannonBall : MonoBehaviour
     public float G = 9.8f;
     public Vector3 direction;
 
-    public Transform start;
-    public Transform end;
-
+    
     public bool inAir;
     public float launchAngle = 45;
 
@@ -26,18 +24,7 @@ public class CannonBall : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse1) && !inAir)
-        {
-            //lift up and forward
-            transform.position = start.position;
-            transform.position += Vector3.up + transform.forward * 2;
-
-            transform.LookAt(end);
-            grav.enabled = true;
-            grav.impulse = fire(transform.position, end.position, launchAngle);
-
-            inAir = true; //set to false when it hits something (on collision enter)
-        }
+       
     }
 
     public Vector3 fire(Vector3 startPos, Vector3 targPos, float angle)
@@ -207,7 +194,7 @@ public class CannonBall : MonoBehaviour
         //multiply by calculated "powder charge"
         angV *= Vo;
 
-        Debug.Log(Vo.ToString());
+        Debug.Log("force " + angV.ToString());
 
         return angV;
     }
