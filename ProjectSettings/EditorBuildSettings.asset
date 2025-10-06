@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GA2_2025.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/IMPORTS/Synty/SidekickCharacters/_Demos/_Scenes/Sidekick_Tool/Sidekick_Facial_Demo.unity
     guid: 81de6633263873d47a142aba54c9ee6a
-  - enabled: 1
+  - enabled: 0
     path: Assets/IMPORTS/Synty/SidekickCharacters/_Demos/_Scenes/Sidekick_Tool/Sidekick_RuntimeColorDemo.unity
     guid: d2a660917c78d6e4caa6a0f689295d6c
-  - enabled: 1
+  - enabled: 0
     path: Assets/IMPORTS/Synty/SidekickCharacters/_Demos/_Scenes/Sidekick_Tool/Sidekick_RuntimePartsDemo.unity
     guid: 8bd797eaa781c9f40a9584f012eb5d56
-  - enabled: 1
+  - enabled: 0
     path: Assets/IMPORTS/Synty/SidekickCharacters/_Demos/_Scenes/Sidekick_Tool/Sidekick_RuntimePresetDemo.unity
     guid: 9f9541e7c1502ba4fb0521a8fea6c033
   m_configObjects:
