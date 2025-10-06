@@ -15,6 +15,9 @@ public class GoFishing : MonoBehaviour
 
     public bool inFishingVolume = false;
 
+    public Transform allTheFish;
+    public bool caughtAfish = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -89,10 +92,19 @@ public class GoFishing : MonoBehaviour
         if(reelItIn)
         {
             //TODO:
-             //add a fish as a child object  to endpoint zero fish Localposition
-             //not here but, make a trigger on the backpack to drop the fish, add the fish as a child of packpack
-             //Localposition 0 again
-             //backpack has a script that counts it's child fish until enough
+            //add a fish as a child object  to endpoint zero fish Localposition
+            //not here but, make a trigger on the backpack to drop the fish, add the fish as a child of packpack
+            //Localposition 0 again
+            //backpack has a script that counts it's child fish until enough
+            if(caughtAfish == false)
+            {
+                caughtAfish = true;
+                //catch the fish
+                Transform thisFish = allTheFish.GetChild(0);
+                thisFish.parent = endp;
+                thisFish.localPosition = Vector3.zero;
+            }
+
 
             //reel it in
             Vector3 pos1 = endp.position;
